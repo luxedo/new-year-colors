@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>New Year Colors</title>
+</head>
+
+<body id="home">
+  <h1 id="color" class="inverted"></h1>
+</body>
+<style>
+  h1 {
+    font-family: arial;
+    font-size: 5em;
+    margin: 3em 3em;
+    white-space: pre;
+    text-align: center;
+  }
+  .inverted {
+    filter: invert(100%);
+  }
+</style>
+<script type="text/javascript">
+  let colors = ["AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk",
+    "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray", "DarkGrey", "DarkGreen", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "DarkOrange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue",
+    "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "DimGray", "DimGrey", "DodgerBlue", "FireBrick", "FloralWhite", "ForestGreen", "Fuchsia", "Gainsboro", "GhostWhite", "Gold", "GoldenRod", "Gray",
+    "Grey", "Green", "GreenYellow", "HoneyDew", "HotPink", "IndianRed", "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush", "LawnGreen", "LemonChiffon", "LightBlue", "LightCoral", "LightCyan", "LightGoldenRodYellow", "LightGray", "LightGrey",
+    "LightGreen", "LightPink", "LightSalmon", "LightSeaGreen", "LightSkyBlue", "LightSlateGray", "LightSlateGrey", "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen", "Magenta", "Maroon", "MediumAquaMarine", "MediumBlue", "MediumOrchid",
+    "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen", "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "MintCream", "MistyRose", "Moccasin", "NavajoWhite", "Navy", "OldLace", "Olive", "OliveDrab", "Orange", "OrangeRed",
+    "Orchid", "PaleGoldenRod", "PaleGreen", "PaleTurquoise", "PaleVioletRed", "PapayaWhip", "PeachPuff", "Peru", "Pink", "Plum", "PowderBlue", "Purple", "RebeccaPurple", "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon", "SandyBrown",
+    "SeaGreen", "SeaShell", "Sienna", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey", "Snow", "SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle", "Tomato", "Turquoise", "Violet", "Wheat", "White", "WhiteSmoke", "Yellow",
+    "YellowGreen"
+  ]
+
+  let wishes = ["chapter book", "soda can", "video games", "desk", "bag", "thermometer", "clock", "fake flowers", "cat", "key chain", "rubber duck", "credit card", "bottle", "pants", "bed", "sharpie", "glasses", "ipod", "milk", "twister", "floor",
+    "shovel", "shirt", "buckel", "candy wrapper", "CD", "paint brush", "purse", "watch", "zipper", "sailboat", "drill press", "keyboard", "table", "clothes", "tomato", "toothpaste", "flowers", "nail file", "drawer", "wagon", "bread", "sidewalk",
+    "street lights", "window", "deodorant", "stockings", "piano", "outlet", "mouse pad", "charger", "conditioner", "bananas", "USB drive", "greeting card", "newspaper", "sun glasses", "pool stick", "shampoo", "bowl", "sand paper",
+    "washing machine", "glow stick", "balloon", "carrots", "radio", "canvas", "door", "tree", "plastic fork", "clay pot", "magnet", "stop sign", "doll", "puddle", "helmet", "photo album", "eraser", "camera", "rug", "chair", "truck", "chocolate",
+    "sandal", "controller", "mop", "hair tie", "cinder block", "lamp", "bow", "pen", "shoes", "playing card", "brocolli", "tissue box", "slipper", "lotion", "speakers", "lamp shade", "water bottle", "ice cube", "tray", "vase", "clamp", "toe ring",
+    "blanket", "lip gloss", "house", "model car", "hair brush", "fridge", "picture frame", "pencil", "towel", "seat belt", "plate", "scotch tape", "beef", "fork", "cookie jar", "rubber band", "sponge", "knife", "twezzers", "button", "socks",
+    "computer", "leg warmers", "coasters", "box", "teddies", "thread", "white out", "remote", "book", "spring", "phone", "apple", "eye liner", "nail clippers", "tv", "cell phone", "shawl", "sofa", "mirror", "grid paper", "spoon", "flag", "lace",
+    "needle", "keys", "television", "air freshener", "sketch pad", "shoe lace", "couch", "checkbook", "face wash", "perfume", "glass", "money", "chalk", "monitor", "toothbrush", "tire swing", "food", "tooth picks", "boom box", "thermostat",
+    "blouse", "sticky note", "rusty nail", "car", "soy sauce", "packet", "candle", "pillow", "paper", "bracelet", "packing peanuts", "headphones", "ring", "mp3 player", "bookmark", "screw", "wallet", "soap", "cork", "cup", "toilet", "hanger",
+    "bottle cap"
+  ]
+
+  let indexColor = Math.floor(Math.random() * colors.length);
+  let color = colors[indexColor];
+
+  let indexWish = Math.floor(Math.random() * wishes.length);
+  let wish = wishes[indexWish];
+  document.body.style.color = color;
+  document.body.style.backgroundColor = color;
+  document.getElementById("color").textContent = `Your New Year Color is\r\n${color.replace(/([A-Z])/g, ' $1').trim()}\r\nand you should wish for a\r\n${wish.charAt(0).toUpperCase() + wish.slice(1)}`
+
+  var canvas = document.createElement('canvas');
+  canvas.width = 16;
+  canvas.height = 16;
+  var ctx = canvas.getContext('2d');
+  var img = new Image();
+  img.src = '/favicon.ico';
+  img.onload = function() {
+    ctx.fillStyle = color;
+    ctx.fillRect(0, 0, 16, 16);
+
+    var link = document.createElement('link');
+    link.type = 'image/x-icon';
+    link.rel = 'shortcut icon';
+    link.href = canvas.toDataURL("image/x-icon");
+    document.getElementsByTagName('head')[0].appendChild(link);
+  }
+</script>
+
+</html>
