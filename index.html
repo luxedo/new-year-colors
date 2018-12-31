@@ -7,13 +7,25 @@
 </head>
 
 <body id="home">
-  <h1 id="color" class="inverted"></h1>
+  <div class="box">
+    <div>
+      <h1 id="color" class="inverted"></h1>
+    </div>
+  </div>
 </body>
 <style>
+  .box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20em;
+  }
+
+  .box div {
+  }
   h1 {
     font-family: arial;
     font-size: 5em;
-    margin: 3em 3em;
     white-space: pre;
     text-align: center;
   }
